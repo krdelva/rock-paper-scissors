@@ -5,22 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
     <div class="container">
-        <h1>ROCK PAPER SCISSORS</h1>
-        <div class="game">
+        <header>
+            <h1>ROCK PAPER SCISSORS</h1>
+        </header>    
+        <div id="game">
             <h2>Make your choice</h2>
-            <div class="rock"></div>
-            <div class="paper"></div>
-            <div class="scissors"></div>
+            <div id="choices">
+                <div id="rock"><h2>Rock</h2></div>
+                <div id="paper"><h2>Paper</h2></div>
+                <div id="scissors"><h2>Scissors</h2></div>
+            </div>
+            <div id="gameProgess">
+                <div id="playerCurrentChoice">
+                    <h3>Your choice is:</h3>
+                    <h2></h2>
+                </div>
+                <div id="computerCurrentChoice">
+                    <h3>The computer's choice is:</h3>
+                    <h2></h2>
+                </div>
+            </div>
         </div>
-        <div class="score">
+        <div id="score">
             <h3>First to 5 points wins the game</h3>
-            <div class="playerScore"></div>
-            <div class="computerScore"></div>
+            <div  id="showScore">
+                <div id="playerScore"><h1>0</h1></div>
+                <div id="computerScore"><h1>0</h1></div>
+            </div>
         </div>
     </div>
+    <footer><h2>Made by krdelva</h2></footer>
+    <script src="script.js"></script>
 </body>
 </html>

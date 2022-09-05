@@ -1,71 +1,69 @@
 
+const rockDiv = document.getElementById("rock");
+const paperDiv = document.getElementById("paper");
+const scissorsDiv = document.getElementById("scissors");
+
+const playerCurrentChoice = document.getElementById("playerCurrentChoice");
+const computerCurrentChoice = document.getElementById("computerCurrentChoice");
+
+const playerScore = document.getElementById("playerScore");
+const computerScore = document.getElementById("computerScore");
+
+playerScore.children[0].innerHTML = 0;
+computerScore.children[0].innerHTML = 0;
+
+
+
+rockDiv.addEventListener("click", () => game("rock", getComputerChoice()), false);
+paperDiv.addEventListener("click", () => game("paper", getComputerChoice()), false);
+scissorsDiv.addEventListener("click", () => game("scissors", getComputerChoice()), false);
+
+
 function getComputerChoice() {
     let choice = (Math.floor(Math.random() * 10) + 1) % 3;
-    console.log(`${choice} : 1 = rock, 2 = paper, 0 = scissors`);
 
     switch(choice) {
         case 1:
-            return "Rock";
+            return "rock";
             break;
         case 2:
-            return "Paper";
+            return "paper";
             break;
         default:
-            return "Scissors";
+            return "scissors";
     }
 }
 
-function playerSelection() {
-    let playerChoice;
-    while (true) {
-        playerChoice = prompt("Please make your choice: Rock, Paper or Scissors?").toLowerCase();
-        if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors") break;
-        alert("Incorrect option! Please choose between Rock, Paper or Scissors");
-        continue;
+function game(playerChoice, computerChoice) {
+    console.log(`Player: ${playerChoice} || Computer: ${computerChoice}`);
+
+    playerCurrentChoice.children[1].innerHTML = `${playerChoice[0].toUpperCase() + playerChoice.substring(1)}`;
+    computerCurrentChoice.children[1].innerHTML = `${computerChoice[0].toUpperCase() + computerChoice.substring(1)}`;
+
+
+    if (playerChoice === computerChoice) {
+        console.log("It's a tie!");
+    } else if (
+        (playerChoice === "rock" && computerChoice === "paper") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        console.log("You win!");
+        playerScore.children[0].innerHTML++;
+    } else if (
+        (computerChoice === "rock" && playerChoice === "paper") ||
+        (computerChoice === "paper" && playerChoice === "rock") ||
+        (computerChoice === "scissors" && playerChoice === "paper")
+    ) {
+        console.log("The computer wins!");
+        computerScore.children[0].innerHTML++;
     }
-    return playerChoice;
+
+    if (playerScore.children[0].innerHTML == 5) {
+        playerScore.children[0].innerHTML = "Player Wins!";
+    } else if (computerScore.children[0].innerHTML == 5) {
+        computerScore.children[0].innerHTML = "Computer Wins!";
+    }
 }
 
-function playGame(playerChoice, computerChoice) {
-    console.log(`${playerChoice} || ${computerChoice}`);
-    computerChoice = computerChoice.toLowerCase();
-    while (playerChoice === computerChoice) {
-        computerChoice = getComputerChoice();
-        playerChoice = playerSelection();
-        continue;
-    }
-    if ((playerChoice === "rock" && computerChoice === "scissors") || 
-    (playerChoice === "paper" && computerChoice === "rock") || 
-    (playerChoice === "scissors" && computerChoice === "paper")) {
-        alert("Player wins!");
-        return true;
-    }
-    alert("Computer wins!");
-    return false;
-}
 
-
-//playGame(playerSelection(), getComputerChoice());
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let result;
-    for (let i = 0; i < 5; i++) {
-        result = playGame(playerSelection(), getComputerChoice());
-        if (result) {
-            playerScore++;
-        } else {
-            computerScore++;
-        }
-    }
-
-    if (playerScore > computerScore) {
-        alert("PLAYER WINS");
-    } else {
-        alert("COMPUTER WINS");
-    }
-
-}
-
-game();
