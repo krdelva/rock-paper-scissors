@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -70,12 +71,12 @@ body {
 
 #playerCurrentChoice {
     width: 300px;
-    height: 200px;
+    height: 100px;
 }
 
 #computerCurrentChoice {
     width: 300px;
-    height: 200px;   
+    height: 100px;   
 }
 
 #playerCurrentChoice > h2 {
@@ -103,7 +104,6 @@ body {
     margin: 32px 0;
 }
 
-
 #showScore {
     display: flex;
     justify-content: center;
@@ -124,6 +124,78 @@ body {
     height: 200px;
     border: 2px solid black;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* MODAL SECTION */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#modal {
+    display: none; /*Hidden by default */
+    position: fixed;
+    z-index: 1;
+    width: 300px;
+    height: 100px;
+    background-color: black;
+    border: 3px solid white;
+    border-radius: 5px;
+
+    flex-direction: column;
+}
+
+#modalContent {
+    background-color: #fefefe;
+    border: 10px solid white;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalRestart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#modalButton {
+    background-color: rgb(80, 78, 78);
+    border-radius: 5px;
+    border: 1px solid rgb(80, 78, 78);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2px;
+}
+
+#modalButton:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+/* FOOTER SECTION */
+footer {
     display: flex;
     justify-content: center;
     align-items: center;
