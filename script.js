@@ -40,11 +40,8 @@ modalButton.addEventListener("click", () => {
     overlay.style.display = "none";
 
 
-    // Resets background and text color to initial values  of the player and computer's choice
-    playerCurrentChoice.children[1].style.backgroundColor = "white";
-    playerCurrentChoice.children[1].style.color = "black";
-    computerCurrentChoice.children[1].style.backgroundColor = "white";
-    computerCurrentChoice.children[1].style.color = "black";
+    // Call to function to reset the player and computer's current choice style
+    resetCurrentChoiceStyle();
 
     // Resets background and text color to initial values  of the player and computer's score
     playerScore.children[0].style.backgroundColor = "white";
@@ -81,11 +78,8 @@ function game(playerChoice, computerChoice) {
         // Adds text to the currentWinner element, to show current hand is a tie
         currentWinner.innerHTML = "It's a tie!!";
 
-        // Resets background and text color to initial values of the player and computer's choice
-        playerCurrentChoice.children[1].style.backgroundColor = "white";
-        playerCurrentChoice.children[1].style.color = "black";
-        computerCurrentChoice.children[1].style.backgroundColor = "white";
-        computerCurrentChoice.children[1].style.color = "black";
+        // Call to function to reset the player and computer's current choice style
+        resetCurrentChoiceStyle();
 
     } else if (
         (playerChoice === "rock" && computerChoice === "scissors") ||
@@ -99,13 +93,8 @@ function game(playerChoice, computerChoice) {
         // Adds 1 to the player's score
         playerScore.children[0].innerHTML++;
 
-        // Adds style to the players's choice to show their choice is the winner
-        playerCurrentChoice.children[1].style.backgroundColor = "black";
-        playerCurrentChoice.children[1].style.color = "white";
-
-        // Resets the computer choice's style
-        computerCurrentChoice.children[1].style.backgroundColor = "white";
-        computerCurrentChoice.children[1].style.color = "black";
+        // Add style to player's current choice and reset's computer's choice style
+        currentChoiceStyle("black", "white");
 
     } else if (
         (computerChoice === "rock" && playerChoice === "scissors") ||
@@ -119,13 +108,8 @@ function game(playerChoice, computerChoice) {
         // Adds 1 to the computer's score
         computerScore.children[0].innerHTML++;
 
-        // Adds style to the computer's choice to show their choice is the winner
-        computerCurrentChoice.children[1].style.backgroundColor = "black";
-        computerCurrentChoice.children[1].style.color = "white";
-
-        // Resets the player choice's style
-        playerCurrentChoice.children[1].style.backgroundColor = "white";
-        playerCurrentChoice.children[1].style.color = "black";
+        // Add style to computer's current choice and reset's players's choice style
+        currentChoiceStyle("white", "black");
     }
 
     // Conditionals to determine if match is over
@@ -155,6 +139,25 @@ function game(playerChoice, computerChoice) {
     }
 
 }
+
+// Function for adding style to the player and computer's current choice of hand
+function currentChoiceStyle(colorOne, colorTwo) {
+        playerCurrentChoice.children[1].style.backgroundColor = colorOne;
+        playerCurrentChoice.children[1].style.color = colorTwo;
+    
+        computerCurrentChoice.children[1].style.backgroundColor = colorTwo;
+        computerCurrentChoice.children[1].style.color = colorOne;
+}
+
+// Function thath resets background and text color to initial values of the player and computer's choice
+function resetCurrentChoiceStyle() {
+
+        playerCurrentChoice.children[1].style.backgroundColor = "white";
+        playerCurrentChoice.children[1].style.color = "black";
+        computerCurrentChoice.children[1].style.backgroundColor = "white";
+        computerCurrentChoice.children[1].style.color = "black";
+}
+
 
 // Function called to display overlay and modal
 function endGame() {
