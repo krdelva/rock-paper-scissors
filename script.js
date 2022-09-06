@@ -44,14 +44,14 @@ function game(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         console.log("It's a tie!");
     } else if (
-        (playerChoice === "rock" && computerChoice === "paper") ||
+        (playerChoice === "rock" && computerChoice === "scissors") ||
         (playerChoice === "paper" && computerChoice === "rock") ||
         (playerChoice === "scissors" && computerChoice === "paper")
     ) {
         console.log("You win!");
         playerScore.children[0].innerHTML++;
     } else if (
-        (computerChoice === "rock" && playerChoice === "paper") ||
+        (computerChoice === "rock" && playerChoice === "scissors") ||
         (computerChoice === "paper" && playerChoice === "rock") ||
         (computerChoice === "scissors" && playerChoice === "paper")
     ) {
