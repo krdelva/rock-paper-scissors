@@ -30,6 +30,7 @@ body {
 #choices {
     display: flex;
     justify-content: center;
+    gap: 16px;
 }
 
 
@@ -41,6 +42,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
 #paper {
@@ -63,10 +70,15 @@ body {
     align-items: center;
 }
 
+#currentWinner {
+    font-size: 28px;
+}
+
 
 #gameProgess {
     display: flex;
     justify-content: center;
+    gap: 16px;
 }
 
 #playerCurrentChoice {
@@ -101,18 +113,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
     margin: 32px 0;
+}
+
+#score > h3 {
+    font-size: 20px;
+    text-decoration: underline;
 }
 
 #showScore {
     display: flex;
     justify-content: center;
+    gap: 16px;
 }
 
 #playerScore {
     width: 200px;
     height: 200px;
     border: 2px solid black;
+    text-align: center;
 
     display: flex;
     justify-content: center;
@@ -123,6 +143,7 @@ body {
     width: 200px;
     height: 200px;
     border: 2px solid black;
+    text-align: center;
 
     display: flex;
     justify-content: center;
